@@ -1,0 +1,68 @@
+{
+  "menu": {
+    "main course": [
+      {
+        "title": "Special hamburger",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "price": 12
+      },
+      {
+        "title": "Crab burger",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "price": 15
+      },
+      {
+        "title": "Happy burger",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "price": 21
+      },
+      {
+        "title": "Sad burger",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "price": 17
+      },
+      {
+        "title": "Medium burger",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "price": 13
+      },
+      {
+        "title": "Tiny burger",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "price": 12
+      },
+      {
+        "title": "No burger",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "price": 12
+      }
+    ],
+    "drinks": [
+      {
+        "title": "Water",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "price": 12
+      },
+      {
+        "title": "Coffee",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "price": 12
+      },
+      {
+        "title": "Tea",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "price": 12
+      },
+      {
+        "title": "Nothing",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "price": 12
+      },
+      {
+        "title": "Something",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        "price": 12
+      },
+    ]
+  }
+}
