@@ -31,6 +31,12 @@ main {
   height: 100dvh;
   padding: 1rem;
   overflow: hidden;
+  opacity: 0;
+  transition: opacity var(--animation-duration) var(--animation-duration);
+
+  &.loaded {
+    opacity: 1;
+  }
 }
 
 @media screen and (min-width: 576px) {

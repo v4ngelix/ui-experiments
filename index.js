@@ -69,6 +69,8 @@ async function loadMain() {
   document.getElementById("description").innerHTML = await readmeFile.text();
 
   enableSectionReordering(document.querySelector("main"));
+
+  document.querySelector("main").classList.add("loaded");
 }
 
 /** Fade out and remove the spinner overlay. */
