@@ -8,3 +8,4 @@ An added benefit — beyond being a showcase of my skills and just a fun project
 - [ ] Lazy load CSS?<br>
 - [ ] demos inside an iframe?
 - [ ] Set up a pipeline to auto-deploy the project.
+- [ ] Maybe spinenr should be directly in the dom and not added through template
