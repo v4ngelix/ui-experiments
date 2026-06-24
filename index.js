@@ -60,6 +60,27 @@ function enableSectionReordering(main) {
   });
 }
 
+/** Fetch the generated experiments list and render it into the sidebar. */
+async function loadExperimentLinks() {
+  const response = await fetch("./experiments.json");
+  const experiments = await response.json();
+
+  const template = document.getElementById("experiment-link");
+  const list = document.querySelector("#experiments-list ul");
+
+  experiments.forEach((experiment) => {
+    const item = template.content.cloneNode(true);
+    const button = item.querySelector("button");
+    button.textContent = experiment.title;
+    button.dataset.url = experiment.url;
+    button.addEventListener("click", () => {
+      const frame = document.getElementById("experiment-frame");
+      frame.src = encodeURI(`${experiment.url}/index.html`);
+    });
+    list.appendChild(item);
+  });
+}
+
 /** Build and populate the main content. */
 async function loadMain() {
   const template = document.getElementById("main-template");
@@ -67,6 +88,8 @@ async function loadMain() {
 
   const readmeFile = await fetch("./README.md");
   document.getElementById("description").innerHTML = await readmeFile.text();
+
+  await loadExperimentLinks();
 
   enableSectionReordering(document.querySelector("main"));
 
