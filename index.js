@@ -73,9 +73,20 @@ async function loadExperimentLinks() {
     const button = item.querySelector("button");
     button.textContent = experiment.title;
     button.dataset.url = experiment.url;
-    button.addEventListener("click", () => {
+    button.addEventListener("click", async () => {
       const frame = document.getElementById("experiment-frame");
       frame.src = encodeURI(`${experiment.url}/index.html`);
+
+      const paragraph = document.getElementById("experiment-description");
+      paragraph.classList.add("hidden");
+
+      const readme = await fetch(encodeURI(`${experiment.url}/README.md`));
+      const text = await readme.text();
+
+      setTimeout(() => {
+        paragraph.innerHTML = text;
+        paragraph.classList.remove("hidden");
+      }, SPINNER_ANIMATION_DURATION * 2);
     });
     list.appendChild(item);
   });

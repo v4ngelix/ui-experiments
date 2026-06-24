@@ -94,16 +94,6 @@ fieldset {
   height: 100%;
 }
 
-p {
-  opacity: 0;
-  animation: fadein var(--animation-duration-fast) var(--animation-duration-slow) 1 forwards;
-}
-
-@keyframes fadein {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
 #experiment {
   padding: 0;
 }
@@ -112,6 +102,14 @@ p {
   border: none;
   height: 100%;
   width: 100%;
+}
+
+#experiment-description {
+  transition: opacity var(--animation-duration-fast);
+
+  &.hidden {
+    opacity: 0;
+  }
 }
 
 #spinner {
