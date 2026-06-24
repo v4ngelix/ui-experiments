@@ -75,6 +75,7 @@ h1 {
 }
 
 section {
+  min-width: 0;
   padding: 0 .25rem .375rem;
   cursor: grab;
   transition: opacity 0.2s, outline-color 0.2s;
@@ -97,6 +98,7 @@ section.drag-over {
 fieldset {
   border: 1px dashed black;
   height: 100%;
+  min-inline-size: 0;
   cursor: initial;
 }
 
@@ -106,6 +108,11 @@ fieldset {
     margin-bottom: .25rem;
     border: none;
     cursor: pointer;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
 
     &:disabled {
       cursor: not-allowed;
