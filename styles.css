@@ -89,6 +89,15 @@ fieldset {
   height: 100%;
 }
 
+#experiments-list {
+  button {
+    appearance: none;
+    margin-bottom: .25rem;
+    border: none;
+
+  }
+}
+
 #experiment {
   padding: 0;
 }

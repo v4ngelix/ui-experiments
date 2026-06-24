@@ -66,7 +66,7 @@ async function loadExperimentLinks() {
   const experiments = await response.json();
 
   const template = document.getElementById("experiment-link");
-  const list = document.querySelector("#experiments-list ul");
+  const list = document.querySelector("#experiments-list ol");
 
   let selectedUrl = null;
   let selectedButton = null;
