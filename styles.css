@@ -4,6 +4,13 @@ Medium (md)	768px and up	768
 Large (lg)	992px and up	992
 Extra large (xl)	1200px and up	1200
 */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
 
 main {
   position: relative;
@@ -16,6 +23,12 @@ main {
 
 .error {
   color: red;
+}
+
+section {
+  margin: 1rem;
+  border: 1px solid black;
+  padding: 1rem;
 }
 
 #spinner {
