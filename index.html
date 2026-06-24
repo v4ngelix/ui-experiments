@@ -8,34 +8,19 @@
     <main>
       <div>
         UI-Experiments
-        <pre>
+        <pre id="description">
           An library of unsorted UI experiments. Mostly used with pure vanilla javascript.
         </pre>
         <ul id="links"></ul>
       </div>
-      <div>
-        <iframe id="experiment">
-
-        </iframe>
-      </div>
-      <div>
-      </div>
+      <iframe id="experiment"></iframe>
+      <div id="examples"></div>
     </main>
 
     <div class="exp__spinner-backdrop">
       <img src="spinner.svg" alt="Loading" />
     </div>
 
-    <script>
-      setTimeout(() => {
-        const kana = document.getElementsByClassName("exp__spinner-backdrop")?.[0];
-        if (kana) {
-          kana.classList.add("exp__spinner-backdrop--has-loaded");
-          setTimeout(() => {
-            document.body.removeChild(kana);
-          },351);
-        }
-      }, 2000)
-    </script>
+    <script src="index.js" defer></script>
   </body>
 </html>
