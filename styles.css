@@ -28,9 +28,7 @@ main {
     "experiment-description"
     "examples";
   width: 100dvw;
-  height: 100dvh;
   padding: 1rem;
-  overflow: hidden;
   opacity: 0;
   transition: opacity var(--animation-duration) var(--animation-duration);
 
@@ -39,7 +37,7 @@ main {
   }
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 992px) {
   main {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -50,13 +48,15 @@ main {
   }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1200px) {
   main {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
       "introduction      experiment  experiment-description"
       "experiments-list  experiment  examples";
+    height: 100dvh;
+    overflow: hidden;
   }
 }
 
