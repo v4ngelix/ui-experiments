@@ -12,6 +12,12 @@ body {
   margin: 0;
 }
 
+#introduction           { grid-area: introduction; }
+#experiments-list       { grid-area: experiments-list; }
+#experiment             { grid-area: experiment; }
+#experiment-description { grid-area: experiment-description; }
+#examples               { grid-area: examples; }
+
 main {
   position: relative;
   display: grid;
@@ -19,6 +25,36 @@ main {
   height: 100dvh;
   overflow: hidden;
   font-family: monospace;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas:
+    "introduction"
+    "experiments-list"
+    "experiment"
+    "experiment-description"
+    "examples";
+}
+
+@media screen and (min-width: 576px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      "introduction            experiments-list"
+      "experiment              experiment"
+      "experiment-description  examples";
+  }
+}
+
+@media screen and (min-width: 992px) {
+  main {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "introduction      experiment  experiment-description"
+      "experiments-list  experiment  examples";
+  }
 }
 
 .error {
@@ -27,8 +63,18 @@ main {
 
 section {
   margin: 1rem;
-  border: 1px solid black;
+  border: 1px dashed black;
   padding: 1rem;
+}
+
+#experiment {
+  padding: 0;
+}
+
+#experiment-frame {
+  border: none;
+  height: 100%;
+  width: 100%;
 }
 
 #spinner {
