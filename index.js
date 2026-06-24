@@ -68,12 +68,17 @@ async function loadExperimentLinks() {
   const template = document.getElementById("experiment-link");
   const list = document.querySelector("#experiments-list ul");
 
+  let selectedUrl = null;
+
   experiments.forEach((experiment) => {
     const item = template.content.cloneNode(true);
     const button = item.querySelector("button");
     button.textContent = experiment.title;
     button.dataset.url = experiment.url;
     button.addEventListener("click", async () => {
+      if (selectedUrl === experiment.url) return;
+      selectedUrl = experiment.url;
+
       const frame = document.getElementById("experiment-frame");
       frame.src = encodeURI(`${experiment.url}/index.html`);
 
