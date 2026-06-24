@@ -24,20 +24,8 @@ jobs:
       - name: Update application and restart
         run: |
           ssh virt65914@boheemia.ee "\
-            cd domeenid/www.boheemia.ee/w8/ && \
+            cd domeenid/www.boheemia.ee/ && \
             echo 'In directory:' && pwd && \
-            ls && \
-            if [ -f package.json ]; then \
-              echo 'Running backup...' && \
-              npm run backup || echo 'Backup failed, continuing anyway' && \
-              nvm use || true && \
-              npm i || true && \
-              pm2 delete w8-tracker || true && \
-              pm2 save --force && \
-              pm2 start ./server/application.ts --interpreter=node --node-args='--env-file=./configurations/.env' --watch --name=w8-tracker; \
-            else \
-              npm i || true && \
-              pm2 delete w8-tracker || true && \
-              pm2 save --force && \
-              pm2 start ./server/application.ts --interpreter=node --node-args='--env-file=./configurations/.env' --watch --name=w8-tracker; \
-            fi"
+            rm -rf experiments && \
+            mkdir experiments"
+          rsync -az --exclude='.git' ./ virt65914@boheemia.ee:domeenid/www.boheemia.ee/experiments/
