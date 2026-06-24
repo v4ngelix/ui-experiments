@@ -70,33 +70,45 @@ async function loadExperimentLinks() {
 
   let selectedUrl = null;
 
+  async function selectExperiment(experiment) {
+    if (selectedUrl === experiment.url) return;
+    selectedUrl = experiment.url;
+
+    const params = new URLSearchParams(window.location.search);
+    params.set("demo", experiment.url);
+    history.replaceState(null, "", `?${params.toString()}`);
+
+    const frame = document.getElementById("experiment-frame");
+    frame.classList.add("hidden");
+    frame.src = encodeURI(`${experiment.url}/index.html`);
+
+    const paragraph = document.getElementById("experiment-description");
+    paragraph.classList.add("hidden");
+
+    const readme = await fetch(encodeURI(`${experiment.url}/README.md`));
+    const text = await readme.text();
+
+    setTimeout(() => {
+      paragraph.innerHTML = text;
+      paragraph.classList.remove("hidden");
+      frame.classList.remove("hidden");
+    }, SPINNER_ANIMATION_DURATION * 2);
+  }
+
   experiments.forEach((experiment) => {
     const item = template.content.cloneNode(true);
     const button = item.querySelector("button");
     button.textContent = experiment.title;
     button.dataset.url = experiment.url;
-    button.addEventListener("click", async () => {
-      if (selectedUrl === experiment.url) return;
-      selectedUrl = experiment.url;
-
-      const frame = document.getElementById("experiment-frame");
-      frame.classList.add("hidden");
-      frame.src = encodeURI(`${experiment.url}/index.html`);
-
-      const paragraph = document.getElementById("experiment-description");
-      paragraph.classList.add("hidden");
-
-      const readme = await fetch(encodeURI(`${experiment.url}/README.md`));
-      const text = await readme.text();
-
-      setTimeout(() => {
-        paragraph.innerHTML = text;
-        paragraph.classList.remove("hidden");
-        frame.classList.remove("hidden");
-      }, SPINNER_ANIMATION_DURATION * 2);
-    });
+    button.addEventListener("click", () => selectExperiment(experiment));
     list.appendChild(item);
   });
+
+  const requestedUrl = new URLSearchParams(window.location.search).get("demo");
+  const initial =
+    experiments.find((experiment) => experiment.url === requestedUrl) ||
+    experiments[0];
+  if (initial) selectExperiment(initial);
 }
 
 /** Build and populate the main content. */
