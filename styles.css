@@ -87,6 +87,7 @@ section.drag-over {
 fieldset {
   border: 1px dashed black;
   height: 100%;
+  cursor: initial;
 }
 
 #experiments-list {
