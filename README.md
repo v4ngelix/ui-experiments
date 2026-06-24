@@ -6,6 +6,5 @@ Every experiment comes with a brief description, what I set out to achieve, a de
 An added benefit — beyond being a showcase of my skills and just a fun project — is that these UI snippets can serve as examples for LLMs aiming to achieve something similar in other projects.
 <br><br>
 - [ ] Lazy load CSS?<br>
-- [ ] demos inside an iframe?
 - [ ] Set up a pipeline to auto-deploy the project.
 - [ ] Maybe spinenr should be directly in the dom and not added through template
