@@ -3,8 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      height: 100dvh;
+    }
+
+    #initial-background {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1rem;
+      width: 10rem;
+      height: 10rem;
+      animation: pulse 4s infinite;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    #initial {
+      color: white;
+      font-size: 7rem;
+      line-height: 1;
+    }
+
+    @keyframes pulse {
+      0% { background: red}
+      10% { background: yellow}
+      20% { background: green}
+      30% { background: blue}
+      40% { background: gray}
+      50% { background: purple}
+      60% { background: orange}
+      70% { background: cyan}
+      80% { background: greenyellow}
+      90% { background: magenta}
+    }
+  </style>
 </head>
 <body>
-
+  <div id="initial-background">
+    <div id="initial">A</div>
+  </div>
 </body>
 </html>
