@@ -86,7 +86,7 @@ async function loadExperimentLinks() {
     const frame = document.getElementById("experiment-frame");
     frame.classList.add("hidden");
 
-    const paragraph = document.getElementById("experiment-description");
+    const paragraph = document.querySelector("#experiment-description fieldset p");
     paragraph.classList.add("hidden");
 
     const readme = await fetch(encodeURI(`${experiment.url}/README.md`));
