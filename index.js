@@ -1,4 +1,4 @@
-const SPINNER_ANIMATION_DURATION = 350;
+const SPINNER_ANIMATION_DURATION = 250;
 
 /** Show the spinner overlay, resolving once its fade-in animation completes. */
 function showSpinner() {

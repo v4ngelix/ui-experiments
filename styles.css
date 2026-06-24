@@ -6,7 +6,8 @@
 body {
   margin: 0;
   font-family: monospace;
-  --animation-duration: 350ms;
+  --spinner-animation-duration: 250ms;
+  --main-animation-duration: 400ms;
 }
 
 #introduction           { grid-area: introduction; }
@@ -30,7 +31,7 @@ main {
   width: 100dvw;
   padding: 1rem;
   opacity: 0;
-  transition: opacity var(--animation-duration) var(--animation-duration);
+  transition: opacity var(--main-animation-duration) var(--spinner-animation-duration);
 
   &.loaded {
     opacity: 1;
@@ -109,7 +110,7 @@ section.drag-over {
   height: 100dvh;
   background-color: white;
   opacity: 0;
-  transition: opacity var(--animation-duration);
+  transition: opacity var(--spinner-animation-duration);
 
   &.visible {
     opacity: 1;
