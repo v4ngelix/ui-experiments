@@ -1,0 +1,14 @@
+{
+  "name": "ui-experiments",
+  "version": "1.0.0",
+  "description": "A repository of various UI experiments",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/v4ngelix/UI-Experiments"
+  },
+  "license": "ISC",
+  "author": "Andi Angel",
+  "scripts": {
+    "build:links": "node utils/build-links.js"
+  }
+}
