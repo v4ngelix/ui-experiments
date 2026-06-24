@@ -69,10 +69,15 @@ async function loadExperimentLinks() {
   const list = document.querySelector("#experiments-list ul");
 
   let selectedUrl = null;
+  let selectedButton = null;
 
-  async function selectExperiment(experiment) {
+  async function selectExperiment(experiment, button) {
     if (selectedUrl === experiment.url) return;
     selectedUrl = experiment.url;
+
+    if (selectedButton) selectedButton.disabled = false;
+    selectedButton = button;
+    button.disabled = true;
 
     const params = new URLSearchParams(window.location.search);
     params.set("demo", experiment.url);
@@ -95,12 +100,15 @@ async function loadExperimentLinks() {
     }, SPINNER_ANIMATION_DURATION * 2);
   }
 
+  const buttons = new Map();
+
   experiments.forEach((experiment) => {
     const item = template.content.cloneNode(true);
     const button = item.querySelector("button");
     button.textContent = experiment.title;
     button.dataset.url = experiment.url;
-    button.addEventListener("click", () => selectExperiment(experiment));
+    button.addEventListener("click", () => selectExperiment(experiment, button));
+    buttons.set(experiment.url, button);
     list.appendChild(item);
   });
 
@@ -108,7 +116,7 @@ async function loadExperimentLinks() {
   const initial =
     experiments.find((experiment) => experiment.url === requestedUrl) ||
     experiments[0];
-  if (initial) selectExperiment(initial);
+  if (initial) selectExperiment(initial, buttons.get(initial.url));
 }
 
 /** Build and populate the main content. */
