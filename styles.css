@@ -84,29 +84,22 @@ section {
   align-items: center;
   width: 100dvw;
   height: 100dvh;
-  animation: loaded 1s linear 1 forwards reverse;
+  background-color: white;
+  opacity: 0;
+  transition: opacity var(--animation-duration);
 
-  &.has-loaded {
-    animation: loaded 350ms linear 1 forwards;
+  &.visible {
+    opacity: 1;
   }
 
-  img {
-    height: 1rem;
-    width: 1rem;
-    animation: spin 1s linear infinite;
+  div {
+    border: 1px dashed black;
+    border-radius: 1rem;
+    height: 2rem;
+    width: 2rem;
+    animation: spin 2s linear infinite;
     transform-origin: center;
     animation-fill-mode: none;
-  }
-}
-
-@keyframes loaded {
-  0% {
-    opacity: 1;
-    background-color: rgba(255, 255, 255, 1);
-  }
-  100% {
-    opacity: 0;
-    background-color: rgba(255, 255, 255, 0);
   }
 }
 

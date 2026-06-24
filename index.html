@@ -5,28 +5,39 @@
     <title>UI Experiments</title>
     <link rel="stylesheet" href="styles.css" />
   <body>
-    <main>
-      <section id="introduction">
-          <h1>
-            UI-Experiments
-          </h1>
-          <pre id="description">
-          An library of unsorted UI experiments. Mostly used with pure vanilla javascript.
-        </pre>
-      </section>
-      <section id="experiments-list">
-        experiments-list
-      </section>
-      <section id="experiment">
-        <iframe id="experiment-frame">experiments</iframe>
-      </section>
-      <section id="experiment-description">experiment-description</section>
-      <section id="examples">examples</section>
-    </main>
+    <template id="main-template">
+      <main>
+        <section id="introduction">
+            <h1>
+              UI-Experiments
+            </h1>
+            <pre id="description">
+            An library of unsorted UI experiments. Mostly used with pure vanilla javascript.
+          </pre>
+        </section>
+        <section id="experiments-list">
+          <ul>
+            <li>
+              <button>
+                Circle with dithering and a gradient
+              </button>
+            </li>
+          </ul>
+          experiments-list
+        </section>
+        <section id="experiment">
+          <iframe id="experiment-frame">experiments</iframe>
+        </section>
+        <section id="experiment-description">experiment-description</section>
+        <section id="examples">examples</section>
+      </main>
+    </template>
 
-    <div id="spinner">
-      <img src="spinner.svg" alt="Loading" />
-    </div>
+    <template id="spinner-template">
+      <div id="spinner">
+        <div></div>
+      </div>
+    </template>
 
     <script src="index.js" defer></script>
   </body>
