@@ -85,7 +85,6 @@ async function loadExperimentLinks() {
 
     const frame = document.getElementById("experiment-frame");
     frame.classList.add("hidden");
-    frame.src = encodeURI(`${experiment.url}/index.html`);
 
     const paragraph = document.getElementById("experiment-description");
     paragraph.classList.add("hidden");
@@ -96,6 +95,7 @@ async function loadExperimentLinks() {
     setTimeout(() => {
       paragraph.innerHTML = text;
       paragraph.classList.remove("hidden");
+      frame.src = encodeURI(`${experiment.url}/index.html`);
       frame.classList.remove("hidden");
     }, SPINNER_ANIMATION_DURATION * 2);
   }

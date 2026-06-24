@@ -106,6 +106,7 @@ fieldset {
   border: none;
   height: 100%;
   width: 100%;
+  transition: opacity var(--animation-duration-fast);
 }
 
 #experiment-description {
