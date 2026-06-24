@@ -18,6 +18,48 @@ function showSpinner() {
   });
 }
 
+/** Enable drag-and-drop reordering of the layout sections. */
+function enableSectionReordering(main) {
+  const sections = main.querySelectorAll("section");
+  let dragged = null;
+
+  sections.forEach((section) => {
+    section.style.gridArea = section.id;
+    section.draggable = true;
+
+    section.addEventListener("dragstart", () => {
+      dragged = section;
+      section.classList.add("dragging");
+    });
+
+    section.addEventListener("dragend", () => {
+      section.classList.remove("dragging");
+      dragged = null;
+    });
+
+    section.addEventListener("dragover", (event) => {
+      event.preventDefault();
+      if (dragged && dragged !== section) {
+        section.classList.add("drag-over");
+      }
+    });
+
+    section.addEventListener("dragleave", () => {
+      section.classList.remove("drag-over");
+    });
+
+    section.addEventListener("drop", (event) => {
+      event.preventDefault();
+      section.classList.remove("drag-over");
+      if (!dragged || dragged === section) return;
+
+      const draggedArea = dragged.style.gridArea;
+      dragged.style.gridArea = section.style.gridArea;
+      section.style.gridArea = draggedArea;
+    });
+  });
+}
+
 /** Build and populate the main content. */
 async function loadMain() {
   const template = document.getElementById("main-template");
@@ -25,6 +67,8 @@ async function loadMain() {
 
   const readmeFile = await fetch("./README.md");
   document.getElementById("description").innerHTML = await readmeFile.text();
+
+  enableSectionReordering(document.querySelector("main"));
 }
 
 /** Fade out and remove the spinner overlay. */

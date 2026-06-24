@@ -1,3 +1,4 @@
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -5,6 +6,7 @@
 body {
   margin: 0;
   font-family: monospace;
+  --animation-duration: 350ms;
 }
 
 #introduction           { grid-area: introduction; }
@@ -63,6 +65,21 @@ h1 {
 section {
   border: 1px dashed black;
   padding: 1rem;
+  cursor: grab;
+  transition: opacity 0.2s, outline-color 0.2s;
+  &:hover {
+    background-color: antiquewhite;
+  }
+}
+
+section.dragging {
+  opacity: 0.4;
+  cursor: grabbing;
+}
+
+section.drag-over {
+  outline: 2px solid black;
+  outline-offset: -2px;
 }
 
 #experiment {
