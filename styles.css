@@ -14,11 +14,6 @@ main {
   font-family: monospace;
 }
 
-#spinner {
-
-
-}
-
 .exp__spinner-backdrop {
   position: absolute;
   top: 0;
@@ -29,31 +24,32 @@ main {
   width: 100dvw;
   height: 100dvh;
   background-color: rgba(255, 255, 255, 1);
-}
 
-.exp__spinner-backdrop--has-loaded {
-  animation: loaded 2s linear infinite;
-}
-
-@keyframes loaded {
-  99% {
-    background-color: rgba(255, 255, 255, 0);
+  img {
+    height: 1rem;
+    width: 1rem;
+    animation: spin 1s linear infinite;
+    transform-origin: center;
+    animation-fill-mode: none;
   }
-  100% {
-    display: none;
-    pointer-events: all;
-  }
-}
-
-#exp__spinner {
-  height: 1rem;
-  width: 1rem;
-  animation: spin 1s linear infinite;
-  transform-origin: center;
-  animation-fill-mode: none;
 }
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.exp__spinner-backdrop--has-loaded {
+  animation: loaded 350ms linear 1 forwards;
+}
+
+@keyframes loaded {
+  99% {
+    background-color: rgba(255, 255, 255, 0);
+    opacity: 0;
+  }
+  100% {
+    display: none;
+    pointer-events: all;
+  }
 }
