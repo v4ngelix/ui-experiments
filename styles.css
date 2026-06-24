@@ -6,8 +6,8 @@
 body {
   margin: 0;
   font-family: monospace;
-  --spinner-animation-duration: 250ms;
-  --main-animation-duration: 400ms;
+  --animation-duration-fast: 250ms;
+  --animation-duration-slow: 400ms;
 }
 
 #introduction           { grid-area: introduction; }
@@ -31,7 +31,7 @@ main {
   width: 100dvw;
   padding: 1rem;
   opacity: 0;
-  transition: opacity var(--main-animation-duration) var(--spinner-animation-duration);
+  transition: opacity var(--animation-duration-slow) var(--animation-duration-fast);
 
   &.loaded {
     opacity: 1;
@@ -122,7 +122,7 @@ p {
   height: 100dvh;
   background-color: white;
   opacity: 0;
-  transition: opacity var(--spinner-animation-duration);
+  transition: opacity var(--animation-duration-fast);
 
   &.visible {
     opacity: 1;
