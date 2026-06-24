@@ -8,7 +8,7 @@ function showSpinner() {
 
   return new Promise((resolve) => {
     setTimeout(() => {
-      spinner.classList.add("visible");
+      spinner.classList.remove("hidden");
     }, 0)
 
     setTimeout(() => {
@@ -109,7 +109,7 @@ async function loadMain() {
 
   enableSectionReordering(document.querySelector("main"));
 
-  document.querySelector("main").classList.add("loaded");
+  document.querySelector("main").classList.remove("hidden");
 }
 
 showSpinner()
@@ -123,7 +123,7 @@ showSpinner()
         main.innerHTML = error.message;
       }
     } finally {
-      spinner.classList.remove("visible");
+      spinner.classList.add("hidden");
       setTimeout(() => {
         document.body.removeChild(spinner);
       }, SPINNER_ANIMATION_DURATION);
