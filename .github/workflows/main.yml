@@ -26,4 +26,4 @@ jobs:
             echo 'In directory:' && pwd && \
             rm -rf experiments && \
             mkdir experiments"
-          rsync -az --exclude='.git' ./ virt65914@boheemia.ee:domeenid/www.boheemia.ee/experiments/
+          rsync -az --exclude='.git' --exclude='.gitignore' ./ virt65914@boheemia.ee:domeenid/www.boheemia.ee/experiments/
