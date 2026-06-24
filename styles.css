@@ -1,4 +1,3 @@
-
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -14,7 +13,7 @@ body {
 #experiments-list       { grid-area: experiments-list; }
 #experiment             { grid-area: experiment; }
 #experiment-description { grid-area: experiment-description; }
-#examples               { grid-area: examples; }
+#inspiration               { grid-area: inspiration; }
 
 main {
   position: relative;
@@ -27,10 +26,21 @@ main {
     "experiments-list"
     "experiment"
     "experiment-description"
-    "examples";
+    "inspiration";
   width: 100dvw;
   padding: 1rem;
   transition: opacity var(--animation-duration-slow) var(--animation-duration-fast);
+}
+
+@media screen and (min-width: 576px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      "introduction            experiments-list"
+      "experiment              experiment"
+      "experiment-description  inspiration";
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -38,9 +48,9 @@ main {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas:
-      "introduction            experiments-list"
-      "experiment              experiment"
-      "experiment-description  examples";
+      "introduction            experiment"
+      "experiments-list        experiment"
+      "experiment-description  inspiration";
   }
 }
 
@@ -50,7 +60,7 @@ main {
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
       "introduction      experiment  experiment-description"
-      "experiments-list  experiment  examples";
+      "experiments-list  experiment  inspiration";
     height: 100dvh;
     overflow: hidden;
   }
