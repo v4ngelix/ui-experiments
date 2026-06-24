@@ -95,11 +95,6 @@ section {
   }
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 @keyframes loaded {
   99% {
     background-color: rgba(255, 255, 255, 0);
@@ -109,4 +104,9 @@ section {
     display: none;
     pointer-events: all;
   }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
