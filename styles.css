@@ -70,8 +70,6 @@ h1 {
 }
 
 section {
-  border: 1px dashed black;
-  padding: 1rem;
   cursor: grab;
   transition: opacity 0.2s, outline-color 0.2s;
   &:hover {
@@ -87,6 +85,20 @@ section.dragging {
 section.drag-over {
   outline: 2px solid black;
   outline-offset: -2px;
+}
+
+fieldset {
+  border: 1px dashed black;
+  height: 100%;
+}
+
+p {
+  opacity: 0;
+  animation: fadein var(--animation-duration-fast) var(--animation-duration-slow) 1 forwards;
+}
+
+@keyframes fadein {
+  100% { opacity: 1; }
 }
 
 #experiment {
