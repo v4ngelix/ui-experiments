@@ -73,11 +73,6 @@ async function loadMain() {
   document.querySelector("main").classList.add("loaded");
 }
 
-/** Fade out and remove the spinner overlay. */
-function hideSpinner(spinner) {
-
-}
-
 /** Load page contents */
 async function initializePage() {
   const spinner = await showSpinner();
