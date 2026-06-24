@@ -73,23 +73,20 @@ async function loadMain() {
   document.querySelector("main").classList.add("loaded");
 }
 
-/** Load page contents */
-async function initializePage() {
-  const spinner = await showSpinner();
-  try {
-    await loadMain();
-  } catch (error) {
-    const main = document.getElementsByTagName("main")?.[0];
-    if (main) {
-      main.classList.add("error");
-      main.innerHTML = error.message;
+showSpinner()
+  .then(async () => {
+    try {
+      await loadMain();
+    } catch (error) {
+      const main = document.getElementsByTagName("main")?.[0];
+      if (main) {
+        main.classList.add("error");
+        main.innerHTML = error.message;
+      }
+    } finally {
+      spinner.classList.remove("visible");
+      setTimeout(() => {
+        document.body.removeChild(spinner);
+      }, SPINNER_ANIMATION_DURATION);
     }
-  } finally {
-    spinner.classList.remove("visible");
-    setTimeout(() => {
-      document.body.removeChild(spinner);
-    }, SPINNER_ANIMATION_DURATION);
-  }
-}
-
-initializePage();
+  })
