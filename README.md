@@ -7,3 +7,4 @@ An added benefit — beyond being a showcase of my skills and just a fun project
 <br><br>
 - [ ] Lazy load CSS?<br>
 - [ ] demos inside an iframe?
+- [ ] Set up a pipeline to auto-deploy the project.
