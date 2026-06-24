@@ -80,7 +80,7 @@ section {
   align-items: center;
   width: 100dvw;
   height: 100dvh;
-  background-color: rgba(255, 255, 255, 1);
+  animation: loaded 1s linear 1 forwards reverse;
 
   &.has-loaded {
     animation: loaded 350ms linear 1 forwards;
@@ -96,13 +96,13 @@ section {
 }
 
 @keyframes loaded {
-  99% {
-    background-color: rgba(255, 255, 255, 0);
-    opacity: 0;
+  0% {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 1);
   }
   100% {
-    display: none;
-    pointer-events: all;
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0);
   }
 }
 
