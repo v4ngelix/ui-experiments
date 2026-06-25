@@ -95,12 +95,12 @@ section.dragging {
 }
 
 section.drag-over {
-  outline: 2px solid black;
-  outline-offset: -2px;
+  outline: .125rem solid black;
+  outline-offset: -.125rem;
 }
 
 fieldset {
-  border: 1px dashed black;
+  border: .0625rem dashed black;
   height: 100%;
   min-inline-size: 0;
   cursor: initial;
@@ -152,7 +152,7 @@ fieldset {
   transition: opacity var(--animation-duration-fast);
 
   div {
-    border: 1px dashed black;
+    border: .0625rem dashed black;
     border-radius: 1rem;
     height: 2rem;
     width: 2rem;
