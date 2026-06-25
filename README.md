@@ -7,3 +7,4 @@ An added benefit — beyond being a showcase of my skills and just a fun project
 <br><br>
 - [ ] Lazy load CSS?<br>
 - [ ] Dithered circle, but svgs are masked.
+- [ ] Add a build script, use typescript, bake links into main js and merge all stylesheets.
