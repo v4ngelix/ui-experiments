@@ -2,8 +2,6 @@ const SPINNER_ANIMATION_DURATION = 400;
 
 /** Show the spinner overlay, resolving once its fade-in animation completes. */
 function showSpinner() {
-  const spinnerTemplate = document.getElementById("spinner-template");
-  document.body.appendChild(spinnerTemplate.content.cloneNode(true));
   const spinner = document.getElementById("spinner");
 
   return new Promise((resolve) => {

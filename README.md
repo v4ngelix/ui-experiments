@@ -7,4 +7,3 @@ An added benefit — beyond being a showcase of my skills and just a fun project
 <br><br>
 - [ ] Lazy load CSS?<br>
 - [ ] Dithered circle, but svgs are masked.
-- [ ] Maybe spinenr should be directly in the dom and not added through template
