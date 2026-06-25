@@ -10,7 +10,6 @@ function showSpinner() {
     }, 0)
 
     setTimeout(() => {
-      console.log('Resolved?')
       resolve(spinner);
     }, SPINNER_ANIMATION_DURATION)
   });
