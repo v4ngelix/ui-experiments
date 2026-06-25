@@ -123,11 +123,11 @@ fieldset {
   border: none;
   height: 100%;
   width: 100%;
-  transition: opacity var(--animation-duration-fast);
+  transition: opacity var(--animation-duration-slow);
 }
 
 #experiment-description {
-  transition: opacity var(--animation-duration-fast);
+  transition: opacity var(--animation-duration-slow);
 }
 
 .hidden {
@@ -144,7 +144,7 @@ fieldset {
   width: 100dvw;
   height: 100dvh;
   background-color: white;
-  transition: opacity var(--animation-duration-fast);
+  transition: opacity var(--animation-duration-slow);
 
   div {
     border: .0625rem dashed black;

@@ -1,4 +1,4 @@
-const SPINNER_ANIMATION_DURATION = 250;
+const SPINNER_ANIMATION_DURATION = 400;
 
 /** Show the spinner overlay, resolving once its fade-in animation completes. */
 function showSpinner() {
@@ -97,7 +97,7 @@ async function loadExperimentLinks() {
       paragraph.classList.remove("hidden");
       frame.src = encodeURI(`${experiment.url}/index.html`);
       frame.classList.remove("hidden");
-    }, SPINNER_ANIMATION_DURATION * 2);
+    }, SPINNER_ANIMATION_DURATION / 2);
   }
 
   const buttons = new Map();
