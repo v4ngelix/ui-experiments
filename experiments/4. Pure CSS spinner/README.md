@@ -1,1 +1,1 @@
-A pure CSS spinner to have as lightweight loading indicator as possible, without any lag due to assets loading.
+A pure CSS spinner to have as lightweight loading indicator as possible, without any lag due to the assets being loading.
