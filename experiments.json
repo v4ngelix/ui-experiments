@@ -10,5 +10,9 @@
   {
     "url": "experiments/3. Sparkles",
     "title": "The sparkling sea effect"
+  },
+  {
+    "url": "experiments/4. Pure CSS spinner",
+    "title": "Pure CSS spinner"
   }
 ]
