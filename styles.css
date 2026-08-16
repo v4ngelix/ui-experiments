@@ -138,33 +138,3 @@ fieldset {
 .hidden {
   opacity: 0 !important;
 }
-
-#spinner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100dvw;
-  height: 100dvh;
-  background-color: white;
-  transition: opacity var(--animation-duration-slow);
-
-  div {
-    background: conic-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .25), transparent 75%);
-    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - .1rem), #000 0);
-            mask: radial-gradient(farthest-side, transparent calc(100% - .1rem), #000 0);
-    border-radius: 50%;
-    height: 3rem;
-    width: 3rem;
-    animation: spin 750ms linear infinite;
-    transform-origin: center;
-    animation-fill-mode: none;
-  }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(-360deg); }
-}
