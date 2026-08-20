@@ -5,7 +5,7 @@ Every experiment comes with a brief description, what I set out to achieve, a de
 <br><br>
 An added benefit — beyond being a showcase of my skills and just a fun project — is that these UI snippets can serve as examples for LLMs aiming to achieve something similar in other projects.
 <br><br>
-- [ ] Lazy load CSS?<br>
-- [ ] Learn about hydration.
-- [ ] Dithered circle, but svgs are masked.
-- [ ] Add a build script, use typescript, bake links into main js and merge all stylesheets.
+<b>TODO:</b><br>
+- Learn about hydration.<br>
+- Dithered circle, but svgs are masked.<br>
+- Add a build script, use typescript, bake links into main js and merge all stylesheets.<br>
