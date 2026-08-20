@@ -1,1 +1,1 @@
-A ligature on an animated, rapidly changing background.
+An initial on an animated, rapidly changing background.
