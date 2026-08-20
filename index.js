@@ -1,6 +1,5 @@
 const SPINNER_ANIMATION_DURATION = 400;
 
-/** Show the spinner overlay, resolving once its fade-in animation completes. */
 function showSpinner() {
   const spinner = document.getElementById("spinner");
 
@@ -15,7 +14,6 @@ function showSpinner() {
   });
 }
 
-/** Enable drag-and-drop reordering of the layout sections. */
 function enableSectionReordering(main) {
   const sections = main.querySelectorAll("section");
   let dragged = null;
@@ -57,7 +55,6 @@ function enableSectionReordering(main) {
   });
 }
 
-/** Render an experiment's inspiration media into the gallery. */
 function renderInspiration(experiment, gallery) {
   gallery.replaceChildren();
 
@@ -93,7 +90,6 @@ function renderInspiration(experiment, gallery) {
   });
 }
 
-/** Fetch the generated experiments list and render it into the sidebar. */
 async function loadExperimentLinks() {
   const response = await fetch("./experiments.json");
   const experiments = await response.json();
@@ -157,7 +153,6 @@ async function loadExperimentLinks() {
   if (initial) selectExperiment(initial, buttons.get(initial.url));
 }
 
-/** Build and populate the main content. */
 async function loadMain() {
   const template = document.getElementById("main-template");
   document.body.prepend(template.content.cloneNode(true));

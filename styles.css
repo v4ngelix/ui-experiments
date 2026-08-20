@@ -135,8 +135,6 @@ fieldset {
   transition: opacity var(--animation-duration-slow);
 }
 
-/* min-height lets the gallery scroll inside the fieldset rather than
-   stretching the grid row past the viewport. */
 #inspiration {
   min-height: 0;
 

@@ -19,7 +19,6 @@ function extractTitle(html) {
   return match ? match[1].trim() : null;
 }
 
-/** List the media files inside an experiment's inspiration directory. */
 function findInspiration(dir) {
   const inspirationPath = path.join(EXPERIMENTS_DIR, dir, "inspiration");
   if (!fs.existsSync(inspirationPath)) return [];
