@@ -3,14 +3,23 @@ const path = require("path");
 
 const EXPERIMENTS_DIR = path.join(__dirname, "../experiments");
 const OUTPUT_FILE = path.join(__dirname, "../experiments.json");
-const IMAGE_EXTENSIONS = [".jpg", ".jpeg", ".png", ".gif", ".webp", ".avif"];
+const MEDIA_TYPES = {
+  ".jpg": "image",
+  ".jpeg": "image",
+  ".png": "image",
+  ".gif": "image",
+  ".webp": "image",
+  ".avif": "image",
+  ".webm": "video",
+  ".mp4": "video",
+};
 
 function extractTitle(html) {
   const match = html.match(/<title>([\s\S]*?)<\/title>/i);
   return match ? match[1].trim() : null;
 }
 
-/** List the image files inside an experiment's inspiration directory. */
+/** List the media files inside an experiment's inspiration directory. */
 function findInspiration(dir) {
   const inspirationPath = path.join(EXPERIMENTS_DIR, dir, "inspiration");
   if (!fs.existsSync(inspirationPath)) return [];
@@ -19,8 +28,9 @@ function findInspiration(dir) {
     .readdirSync(inspirationPath, { withFileTypes: true })
     .filter((entry) => entry.isFile())
     .map((entry) => entry.name)
-    .filter((name) => IMAGE_EXTENSIONS.includes(path.extname(name).toLowerCase()))
-    .sort();
+    .sort()
+    .map((file) => ({ file, type: MEDIA_TYPES[path.extname(file).toLowerCase()] }))
+    .filter((entry) => entry.type);
 }
 
 function generate() {

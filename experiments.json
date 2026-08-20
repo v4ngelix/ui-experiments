@@ -3,28 +3,66 @@
     "url": "experiments/1. Dither circle",
     "title": "Circle with a dithered gradient",
     "inspiration": [
-      "1.jpg"
+      {
+        "file": "1.jpg",
+        "type": "image"
+      }
     ]
   },
   {
     "url": "experiments/2. Animated initial",
     "title": "An initial with an animated background",
     "inspiration": [
-      "47f5198566e6bc91a7be1b5024690e7b.gif"
+      {
+        "file": "47f5198566e6bc91a7be1b5024690e7b.gif",
+        "type": "image"
+      }
     ]
   },
   {
     "url": "experiments/3. Sparkles",
     "title": "The sparkling sea effect",
     "inspiration": [
-      "497f7642200fce89fdfc3fc829ea9af3.jpg",
-      "69169ee1556186aaaede7711c277be74.jpg",
-      "6fee071f54d2d3137e881046ecf20753.gif",
-      "765e19cbab804eb12e6cabf2a9e0d0c8.jpg",
-      "b97e9b3a117d34f9f3920a4702098625.jpg",
-      "f328cedf20965f51053155bbffc6d26b.jpg",
-      "gibraltar.png",
-      "sama idee, aga öösel ja valgus diagonaalselt_ nope.jpg"
+      {
+        "file": "497f7642200fce89fdfc3fc829ea9af3.jpg",
+        "type": "image"
+      },
+      {
+        "file": "69169ee1556186aaaede7711c277be74.jpg",
+        "type": "image"
+      },
+      {
+        "file": "6fee071f54d2d3137e881046ecf20753.gif",
+        "type": "image"
+      },
+      {
+        "file": "765e19cbab804eb12e6cabf2a9e0d0c8.jpg",
+        "type": "image"
+      },
+      {
+        "file": "Screencast from 2025-06-04 06-52-03.webm",
+        "type": "video"
+      },
+      {
+        "file": "Screencast from 2025-06-04 06-53-05.webm",
+        "type": "video"
+      },
+      {
+        "file": "b97e9b3a117d34f9f3920a4702098625.jpg",
+        "type": "image"
+      },
+      {
+        "file": "f328cedf20965f51053155bbffc6d26b.jpg",
+        "type": "image"
+      },
+      {
+        "file": "gibraltar.png",
+        "type": "image"
+      },
+      {
+        "file": "sama idee, aga öösel ja valgus diagonaalselt_ nope.jpg",
+        "type": "image"
+      }
     ]
   },
   {

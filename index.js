@@ -57,14 +57,13 @@ function enableSectionReordering(main) {
   });
 }
 
-/** Render an experiment's inspiration images into the gallery. */
+/** Render an experiment's inspiration media into the gallery. */
 function renderInspiration(experiment, gallery) {
-  const template = document.getElementById("inspiration-image");
   gallery.replaceChildren();
 
-  const images = experiment.inspiration || [];
+  const media = experiment.inspiration || [];
 
-  if (!images.length) {
+  if (!media.length) {
     const empty = document.createElement("li");
     empty.className = "empty";
     empty.textContent = "No inspiration pictures for this experiment.";
@@ -72,14 +71,23 @@ function renderInspiration(experiment, gallery) {
     return;
   }
 
-  images.forEach((name) => {
+  media.forEach(({ file, type }) => {
+    const template = document.getElementById(`inspiration-${type}`);
     const item = template.content.cloneNode(true);
-    const source = encodeURI(`${experiment.url}/inspiration/${name}`);
+    const source = encodeURI(`${experiment.url}/inspiration/${file}`);
+    const label = `Inspiration for ${experiment.title}`;
 
-    item.querySelector("a").href = source;
-    const image = item.querySelector("img");
-    image.src = source;
-    image.alt = `Inspiration for ${experiment.title}`;
+    const link = item.querySelector("a");
+    link.href = source;
+
+    if (type === "video") {
+      item.querySelector("video").src = `${source}#t=0.1`;
+      link.ariaLabel = `${label} (video)`;
+    } else {
+      const image = item.querySelector("img");
+      image.src = source;
+      image.alt = label;
+    }
 
     gallery.appendChild(item);
   });

@@ -158,16 +158,32 @@ fieldset {
   overflow-y: auto;
   transition: opacity var(--animation-duration-slow);
 
-  img {
+  img, video {
     display: block;
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
     border: .0625rem solid black;
+    background-color: black;
   }
 
-  a:hover img {
+  a {
+    display: block;
+    position: relative;
+  }
+
+  a:hover :is(img, video) {
     opacity: .7;
+  }
+
+  .play {
+    position: absolute;
+    inset: auto .25rem .25rem auto;
+    padding: 0 .25rem;
+    background-color: black;
+    color: white;
+    font-size: .75rem;
+    line-height: 1.25rem;
   }
 
   .empty {
