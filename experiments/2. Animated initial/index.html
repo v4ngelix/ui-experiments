@@ -3,6 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>An initial with an animated background</title>
+
+  <link rel="preload" as="image" href="./1.png">
+  <link rel="preload" as="image" href="./2.png">
+  <link rel="preload" as="image" href="./3.png">
+  <link rel="preload" as="image" href="./4.png">
+  <link rel="preload" as="image" href="./5.png">
+  <link rel="preload" as="image" href="./6.png">
+  <link rel="preload" as="image" href="./7.png">
+  <link rel="preload" as="image" href="./8.png">
+  <link rel="preload" as="image" href="./9.png">
+  <link rel="preload" as="image" href="./10.png">
+  <link rel="preload" as="image" href="./11.png">
+  <link rel="preload" as="image" href="./12.png">
+  <link rel="preload" as="image" href="./13.png">
+  <link rel="preload" as="image" href="./14.png">
+  <link rel="preload" as="image" href="./15.png">
+  <link rel="preload" as="image" href="./16.png">
+
   <style>
     body {
       display: flex;
@@ -19,35 +37,66 @@
       border-radius: 1rem;
       width: 10rem;
       height: 10rem;
-      animation: pulse 4s infinite;
+      animation: pulse 2s step-end infinite;
+      background-image: url("./1.png");
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+      /* held until every frame is decoded, so the loop never shows a gap */
+      animation-play-state: paused;
+    }
+
+    body.ready #initial-background {
+      animation-play-state: running;
     }
 
     #initial {
       color: white;
-      font-size: 7rem;
+      font-size: 9rem;
+      font-weight: bold;
       line-height: 1;
     }
 
     @keyframes pulse {
-      0% { background: red}
-      10% { background: yellow}
-      20% { background: green}
-      30% { background: blue}
-      40% { background: gray}
-      50% { background: purple}
-      60% { background: orange}
-      70% { background: cyan}
-      80% { background: greenyellow}
-      90% { background: magenta}
+      0%      { background-image: url("./1.png")}
+      6.25%   { background-image: url("./2.png")}
+      12.5%   { background-image: url("./3.png")}
+      18.75%  { background-image: url("./4.png")}
+      25%     { background-image: url("./5.png")}
+      31.25%  { background-image: url("./6.png")}
+      37.5%   { background-image: url("./7.png")}
+      43.75%  { background-image: url("./8.png")}
+      50%     { background-image: url("./9.png")}
+      56.25%  { background-image: url("./10.png")}
+      62.5%   { background-image: url("./11.png")}
+      68.75%  { background-image: url("./12.png")}
+      75%     { background-image: url("./13.png")}
+      81.25%  { background-image: url("./14.png")}
+      87.5%   { background-image: url("./15.png")}
+      93.75%  { background-image: url("./16.png")}
+      100%    { background-image: url("./1.png")}
     }
   </style>
+
+  <noscript>
+    <style>
+      #initial-background { animation-play-state: running; }
+    </style>
+  </noscript>
 </head>
 <body>
   <div id="initial-background">
     <div id="initial">A</div>
   </div>
+
+  <script>
+    const frames = Array.from({ length: 16 }, (_, i) => `./${i + 1}.png`);
+
+    Promise.all(frames.map(src => {
+      const img = new Image();
+      img.src = src;
+      return img.decode().catch(() => {});
+    })).then(() => document.body.classList.add("ready"));
+  </script>
 </body>
 </html>
