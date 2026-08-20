@@ -135,6 +135,46 @@ fieldset {
   transition: opacity var(--animation-duration-slow);
 }
 
+/* min-height lets the gallery scroll inside the fieldset rather than
+   stretching the grid row past the viewport. */
+#inspiration {
+  min-height: 0;
+
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    min-block-size: 0;
+  }
+}
+
+.gallery {
+  display: grid;
+  gap: .5rem;
+  grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
+  align-content: start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-y: auto;
+  transition: opacity var(--animation-duration-slow);
+
+  img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: .0625rem solid black;
+  }
+
+  a:hover img {
+    opacity: .7;
+  }
+
+  .empty {
+    grid-column: 1 / -1;
+  }
+}
+
 .hidden {
   opacity: 0 !important;
 }

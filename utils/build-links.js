@@ -3,10 +3,24 @@ const path = require("path");
 
 const EXPERIMENTS_DIR = path.join(__dirname, "../experiments");
 const OUTPUT_FILE = path.join(__dirname, "../experiments.json");
+const IMAGE_EXTENSIONS = [".jpg", ".jpeg", ".png", ".gif", ".webp", ".avif"];
 
 function extractTitle(html) {
   const match = html.match(/<title>([\s\S]*?)<\/title>/i);
   return match ? match[1].trim() : null;
+}
+
+/** List the image files inside an experiment's inspiration directory. */
+function findInspiration(dir) {
+  const inspirationPath = path.join(EXPERIMENTS_DIR, dir, "inspiration");
+  if (!fs.existsSync(inspirationPath)) return [];
+
+  return fs
+    .readdirSync(inspirationPath, { withFileTypes: true })
+    .filter((entry) => entry.isFile())
+    .map((entry) => entry.name)
+    .filter((name) => IMAGE_EXTENSIONS.includes(path.extname(name).toLowerCase()))
+    .sort();
 }
 
 function generate() {
@@ -23,10 +37,12 @@ function generate() {
     if (!fs.existsSync(indexPath)) continue;
 
     const html = fs.readFileSync(indexPath, "utf8");
+    const inspiration = findInspiration(dir);
 
     experiments.push({
       url: `experiments/${dir}`,
       title: extractTitle(html) || dir,
+      ...(inspiration.length ? { inspiration } : {}),
     });
   }
 

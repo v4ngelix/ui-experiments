@@ -57,6 +57,34 @@ function enableSectionReordering(main) {
   });
 }
 
+/** Render an experiment's inspiration images into the gallery. */
+function renderInspiration(experiment, gallery) {
+  const template = document.getElementById("inspiration-image");
+  gallery.replaceChildren();
+
+  const images = experiment.inspiration || [];
+
+  if (!images.length) {
+    const empty = document.createElement("li");
+    empty.className = "empty";
+    empty.textContent = "No inspiration pictures for this experiment.";
+    gallery.appendChild(empty);
+    return;
+  }
+
+  images.forEach((name) => {
+    const item = template.content.cloneNode(true);
+    const source = encodeURI(`${experiment.url}/inspiration/${name}`);
+
+    item.querySelector("a").href = source;
+    const image = item.querySelector("img");
+    image.src = source;
+    image.alt = `Inspiration for ${experiment.title}`;
+
+    gallery.appendChild(item);
+  });
+}
+
 /** Fetch the generated experiments list and render it into the sidebar. */
 async function loadExperimentLinks() {
   const response = await fetch("./experiments.json");
@@ -86,6 +114,9 @@ async function loadExperimentLinks() {
     const paragraph = document.querySelector("#experiment-description fieldset p");
     paragraph.classList.add("hidden");
 
+    const gallery = document.querySelector("#inspiration .gallery");
+    gallery.classList.add("hidden");
+
     const readme = await fetch(encodeURI(`${experiment.url}/README.md`));
     const text = await readme.text();
 
@@ -94,6 +125,8 @@ async function loadExperimentLinks() {
       paragraph.classList.remove("hidden");
       frame.src = encodeURI(`${experiment.url}/index.html`);
       frame.classList.remove("hidden");
+      renderInspiration(experiment, gallery);
+      gallery.classList.remove("hidden");
     }, SPINNER_ANIMATION_DURATION / 2);
   }
 
