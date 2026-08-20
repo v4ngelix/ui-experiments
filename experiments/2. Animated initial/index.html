@@ -4,22 +4,22 @@
   <meta charset="UTF-8">
   <title>An initial with an animated background</title>
 
-  <link rel="preload" as="image" href="assets/1.png">
-  <link rel="preload" as="image" href="assets/2.png">
-  <link rel="preload" as="image" href="assets/3.png">
-  <link rel="preload" as="image" href="assets/4.png">
-  <link rel="preload" as="image" href="assets/5.png">
-  <link rel="preload" as="image" href="assets/6.png">
-  <link rel="preload" as="image" href="assets/7.png">
-  <link rel="preload" as="image" href="assets/8.png">
-  <link rel="preload" as="image" href="assets/9.png">
-  <link rel="preload" as="image" href="assets/10.png">
-  <link rel="preload" as="image" href="assets/11.png">
-  <link rel="preload" as="image" href="assets/12.png">
-  <link rel="preload" as="image" href="assets/13.png">
-  <link rel="preload" as="image" href="assets/14.png">
-  <link rel="preload" as="image" href="assets/15.png">
-  <link rel="preload" as="image" href="assets/16.png">
+  <link rel="preload" as="image" href="assets/1.webp">
+  <link rel="preload" as="image" href="assets/2.webp">
+  <link rel="preload" as="image" href="assets/3.webp">
+  <link rel="preload" as="image" href="assets/4.webp">
+  <link rel="preload" as="image" href="assets/5.webp">
+  <link rel="preload" as="image" href="assets/6.webp">
+  <link rel="preload" as="image" href="assets/7.webp">
+  <link rel="preload" as="image" href="assets/8.webp">
+  <link rel="preload" as="image" href="assets/9.webp">
+  <link rel="preload" as="image" href="assets/10.webp">
+  <link rel="preload" as="image" href="assets/11.webp">
+  <link rel="preload" as="image" href="assets/12.webp">
+  <link rel="preload" as="image" href="assets/13.webp">
+  <link rel="preload" as="image" href="assets/14.webp">
+  <link rel="preload" as="image" href="assets/15.webp">
+  <link rel="preload" as="image" href="assets/16.webp">
 
   <style>
     body {
@@ -38,7 +38,7 @@
       width: 10rem;
       height: 10rem;
       animation: pulse 2s step-end infinite;
-      background-image: url("assets/1.png");
+      background-image: url("assets/1.webp");
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -57,23 +57,23 @@
     }
 
     @keyframes pulse {
-      0%      { background-image: url("assets/1.png")}
-      6.25%   { background-image: url("assets/2.png")}
-      12.5%   { background-image: url("assets/3.png")}
-      18.75%  { background-image: url("assets/4.png")}
-      25%     { background-image: url("assets/5.png")}
-      31.25%  { background-image: url("assets/6.png")}
-      37.5%   { background-image: url("assets/7.png")}
-      43.75%  { background-image: url("assets/8.png")}
-      50%     { background-image: url("assets/9.png")}
-      56.25%  { background-image: url("assets/10.png")}
-      62.5%   { background-image: url("assets/11.png")}
-      68.75%  { background-image: url("assets/12.png")}
-      75%     { background-image: url("assets/13.png")}
-      81.25%  { background-image: url("assets/14.png")}
-      87.5%   { background-image: url("assets/15.png")}
-      93.75%  { background-image: url("assets/16.png")}
-      100%    { background-image: url("assets/1.png")}
+      0%      { background-image: url("assets/1.webp")}
+      6.25%   { background-image: url("assets/2.webp")}
+      12.5%   { background-image: url("assets/3.webp")}
+      18.75%  { background-image: url("assets/4.webp")}
+      25%     { background-image: url("assets/5.webp")}
+      31.25%  { background-image: url("assets/6.webp")}
+      37.5%   { background-image: url("assets/7.webp")}
+      43.75%  { background-image: url("assets/8.webp")}
+      50%     { background-image: url("assets/9.webp")}
+      56.25%  { background-image: url("assets/10.webp")}
+      62.5%   { background-image: url("assets/11.webp")}
+      68.75%  { background-image: url("assets/12.webp")}
+      75%     { background-image: url("assets/13.webp")}
+      81.25%  { background-image: url("assets/14.webp")}
+      87.5%   { background-image: url("assets/15.webp")}
+      93.75%  { background-image: url("assets/16.webp")}
+      100%    { background-image: url("assets/1.webp")}
     }
   </style>
 
@@ -89,7 +89,7 @@
   </div>
 
   <script>
-    const frames = Array.from({ length: 16 }, (_, i) => `./${i + 1}.png`);
+    const frames = Array.from({ length: 16 }, (_, i) => `assets/${i + 1}.webp`);
 
     Promise.all(frames.map(src => {
       const img = new Image();
