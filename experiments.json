@@ -68,5 +68,15 @@
   {
     "url": "experiments/4. Pure CSS spinner",
     "title": "Pure CSS spinner"
+  },
+  {
+    "url": "experiments/6. Waving flag",
+    "title": "Waving flag",
+    "inspiration": [
+      {
+        "file": "rally select webgl.png",
+        "type": "image"
+      }
+    ]
   }
 ]
