@@ -124,7 +124,8 @@
     gl.viewport(0, 0, canvas.width, canvas.height);
 
     // Scale the pattern like background-size: cover of the 1600 x 960 reference.
-    const cover = Math.max(w / 1600, h / 960);
+    const PATTERN_SCALE = 0.7; // 1 = original size, 0.5 = half size
+    const cover = Math.max(w / 1600, h / 960) * PATTERN_SCALE;
     gl.uniform2f(uPatternSize, w * OVERSCAN / cover, h * OVERSCAN / cover);
   }
   window.addEventListener('resize', resize);
