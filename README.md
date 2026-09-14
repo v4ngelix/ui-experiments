@@ -1,5 +1,5 @@
 A collection of small, self-contained UI experiments, built to practice HTML and CSS, with the occasional sprinkle of JavaScript.
-It also doubles as a playground for prompting and prompt engineering: most pieces here are built in conversation with an AI assistant, so the process is as much the point as the result.
+It also doubles as a playground for prompting and prompt engineering: most pieces here are built in conversation with an AI assistant, so the process is as much the point as the result.<br><br>
 
 Every experiment comes with a brief description, what I set out to achieve, a demonstration, and sometimes one or more examples on what the experiment is based on.
 <br><br>
