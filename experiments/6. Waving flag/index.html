@@ -35,7 +35,9 @@
       float z = 0.09 * sin(p.x * 5.0 - t * 1.8 + p.y * 1.2)
               + 0.035 * sin(p.x * 11.0 - t * 2.7 - p.y * 2.3)
               + 0.015 * sin(p.x * 19.0 - t * 3.6 + p.y * 4.0);
-      return z;
+      const float WAVE_STRENGTH = 0.6; // 1 = original, lower = calmer
+      const float BOTTOM_STRENGTH = 0.5; // wave at the bottom edge, relative to the top
+      return z * WAVE_STRENGTH * mix(BOTTOM_STRENGTH, 1.0, p.y); // p.y: 0 = bottom, 1 = top
     }
 
     void main() {
@@ -48,7 +50,12 @@
       vec2 p = (aPos - 0.5) * 2.0 * OVERSCAN;
       p.x -= z * 0.25;
       p.y += z * 0.35;
-      gl_Position = vec4(p, z, 1.0 + z * 0.8);
+
+      // The perspective divide scales around a pivot, which barely moves.
+      // Drift the pivot slowly so no row or column of the cloth stays still.
+      vec2 pivot = vec2(sin(uTime * 0.3), cos(uTime * 0.5)) * 0.1;
+      float w = 1.0 + z * 0.8;
+      gl_Position = vec4(p + pivot * (w - 1.9), z, w);
     }
   `;
 
